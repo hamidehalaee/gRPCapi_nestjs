@@ -1,7 +1,9 @@
 syntax = "proto3";
 
 package proto;
-
+//Our HeroesService exposes a FindOne() method. 
+//This method expects an 
+//input argument of type HeroById and returns a Hero message
 service HeroesService {
   rpc FindOne (HeroById) returns (Hero) {}
 }
