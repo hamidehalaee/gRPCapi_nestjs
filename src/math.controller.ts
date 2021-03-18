@@ -4,7 +4,7 @@ import { MessagePattern } from '@nestjs/microservices';
 @Controller()
 export class TaskController{
     @MessagePattern('tasks')
-    accumulate(data: string[]): string { //accumulate is task handler for 'tasks'
+    accumulate(data: string[]): string { //accumulate is message handler for 'tasks'
         return (data || []).reduce((a, b) => a + b);
     }
 }
