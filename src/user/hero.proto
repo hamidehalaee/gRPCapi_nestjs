@@ -5,7 +5,8 @@ package proto;
 //This method expects an 
 //input argument of type HeroById and returns a Hero message
 service HeroesService {
-  rpc FindOne (HeroById) returns (Hero) {}
+  rpc FindOne (HeroById) returns (Hero);
+  rpc FindMany (stream HeroById) returns (stream Hero);
 }
 
 message HeroById {
