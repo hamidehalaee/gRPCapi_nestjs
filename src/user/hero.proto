@@ -1,19 +1,28 @@
+customers.proto:
+
 syntax = "proto3";
 
-package proto;
-//Our HeroesService exposes a FindOne() method. 
-//This method expects an 
-//input argument of type HeroById and returns a Hero message
-service HeroesService {
-  rpc FindOne (HeroById) returns (Hero);
-  rpc FindMany (stream HeroById) returns (stream Hero);
+service CustomerService {
+    rpc GetAll (Empty) returns (CustomerList) {}
+    rpc Get (CustomerRequestId) returns (Customer) {}
+    rpc Insert (Customer) returns (Customer) {}
+    rpc Update (Customer) returns (Customer) {}
+    rpc Remove (CustomerRequestId) returns (Empty) {}
 }
 
-message HeroById {
-  int32 id = 1;
+message Empty {}
+
+message Customer {
+    string id = 1;
+    string name = 2;
+    int32 age = 3;
+    string address = 4;
 }
 
-message Hero {
-  int32 id = 1;
-  string name = 2;
+message CustomerList {
+    repeated Customer customers = 1;
+}
+
+message CustomerRequestId {
+    string id = 1;
 }
